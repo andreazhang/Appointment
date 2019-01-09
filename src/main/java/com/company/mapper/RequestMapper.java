@@ -1,7 +1,7 @@
-package com.test.mapper;
+package com.company.mapper;
 
-import com.test.Appointment;
-import com.test.db.AppointmentRepository;
+import com.company.Appointment;
+import com.company.db.AppointmentRepository;
 
 import java.util.List;
 

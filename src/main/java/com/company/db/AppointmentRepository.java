@@ -1,6 +1,6 @@
-package com.test.db;
+package com.company.db;
 
-import com.test.Appointment;
+import com.company.Appointment;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

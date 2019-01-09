@@ -1,8 +1,8 @@
-package com.test.controller;
+package com.company.controller;
 
-import com.test.Appointment;
-import com.test.db.AppointmentRepository;
-import com.test.mapper.RequestMapper;
+import com.company.Appointment;
+import com.company.db.AppointmentRepository;
+import com.company.mapper.RequestMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
