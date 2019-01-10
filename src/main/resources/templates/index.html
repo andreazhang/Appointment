@@ -42,14 +42,14 @@
                             <div class="col-sm-9">
                                 <input type="date" class="form-control" id="date" name="date" th:field="*{date}">
                             </div>
-                            <label for="date" class="col-sm-3 col-sm-offset-3" th:if="${#fields.hasErrors('date')}" th:errors="*{date}">Date Error</label>
+                            <label for="date" class="col-sm-3 col-sm-offset-3" th:if="${#fields.hasErrors('date')}">Date is a mandatory field</label>
                         </div>
                         <div class="form-group">
                             <label for="description" class="col-sm-3 control-label">Description</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="description" name="description" th:field="*{description}">
                             </div>
-                            <label for="description" class="col-sm-3 col-sm-offset-3" th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Description Error</label>
+                            <label for="description" class="col-sm-3 col-sm-offset-3" th:if="${#fields.hasErrors('description')}">Description is a mandatory field</label>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-12 text-right">
