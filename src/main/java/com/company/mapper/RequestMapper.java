@@ -8,7 +8,6 @@ import java.util.List;
 public class RequestMapper {
 
     public List<Appointment> mapGetMethod(AppointmentRepository repository){
-
         return repository.findAll();
     }
 

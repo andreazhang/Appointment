@@ -4,6 +4,7 @@ import com.company.Appointment;
 import com.company.db.AppointmentRepository;
 import com.company.mapper.RequestMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,10 +19,18 @@ public class AppointmentController {
     @Autowired
     private AppointmentRepository repository;
 
+    @GetMapping("/")
+    public String index(Model model){
+        updateAppointmentsList(model);
+
+        model.addAttribute("appointment", new Appointment());
+        return "index";
+    }
+
     @GetMapping("/appointments")
     public String getAppointments(Model model){
         RequestMapper mapper = new RequestMapper();
-        updateAppointmentsList(model, mapper);
+        updateAppointmentsList(model);
 
         model.addAttribute("appointment", new Appointment());
         return "index";
@@ -29,21 +38,22 @@ public class AppointmentController {
 
     @PostMapping("/appointments/create")
     public String newAppointment(@ModelAttribute @Valid Appointment appointment, BindingResult bindingResult, Model model){
-        RequestMapper mapper = new RequestMapper();
-
         if(bindingResult.hasErrors()){
-            updateAppointmentsList(model, mapper);
+            updateAppointmentsList(model);
             return "index";
         }
 
+        RequestMapper mapper = new RequestMapper();
         mapper.mapPostMethod(repository, appointment);
 
-        updateAppointmentsList(model, mapper);
+        updateAppointmentsList(model);
+
         model.addAttribute("appointment", new Appointment());
         return "index";
     }
 
-    private void updateAppointmentsList(Model model, RequestMapper mapper) {
+    private void updateAppointmentsList(Model model) {
+        RequestMapper mapper = new RequestMapper();
         List<Appointment> appointments = mapper.mapGetMethod(repository);
         model.addAttribute("appointments", appointments);
     }
