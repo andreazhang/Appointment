@@ -37,7 +37,7 @@ public class AppointmentController {
     }
 
     @PostMapping("/appointments/create")
-    public String newAppointment(@ModelAttribute @Valid Appointment appointment, BindingResult bindingResult, Model model){
+    public String newAppointment(@Valid @ModelAttribute("appointment") Appointment appointment, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()){
             updateAppointmentsList(model);
             return "index";

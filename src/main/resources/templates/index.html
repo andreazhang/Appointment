@@ -23,7 +23,7 @@
                     </tr>
                     <tr th:each="appointment : ${appointments}">
                         <td><span th:text="${appointment.description}"> Description </span></td>
-                        <td><span th:text="${#dates.format(appointment.date, 'dd/MM/yyyy hh:mm')}"> Date </span></td>
+                        <td><span th:text="${#temporals.format(appointment.date, 'dd/MM/yyyy')}"> Date </span></td>
                     </tr>
                     </tbody>
                 </table>
