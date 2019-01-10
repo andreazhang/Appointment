@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 
 @RunWith(SpringRunner.class)
 @WebMvcTest
-public class ApplicationTest {
+public class RequestMapperTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -31,7 +31,7 @@ public class ApplicationTest {
     private AppointmentRepository repository;
 
     @Test
-    public void testGet() {
+    public void testMapGetMethod_GivenRepository_ReturnListOfAppointments() {
         List<Appointment> mockAppointments = new ArrayList<>();
         Appointment appointment = new Appointment();
         appointment.setDescription("Breakfast");
@@ -41,7 +41,7 @@ public class ApplicationTest {
         List<Appointment> appointments = mapper.mapGetMethod(repository);
         System.out.println(appointments.size());
 
-        Assert.assertEquals(appointments.get(0).getDescription(), appointment.getDescription());
+        Assert.assertEquals(appointment.getDescription(), appointments.get(0).getDescription());
     }
 
 }
