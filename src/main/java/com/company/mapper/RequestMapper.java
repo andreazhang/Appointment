@@ -20,4 +20,7 @@ public class RequestMapper {
         repository.save(appointment);
     }
 
+    public void mapDeleteMethod(AppointmentRepository repository, Long id) {
+        repository.deleteById(id);
+    }
 }

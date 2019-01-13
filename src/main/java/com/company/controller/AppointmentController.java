@@ -51,6 +51,16 @@ public class AppointmentController {
         return "index";
     }
 
+    @PostMapping("/appointments/delete")
+    public String deleteAppointment(Long id, Model model){
+        RequestMapper mapper = new RequestMapper();
+        mapper.mapDeleteMethod(repository, id);
+
+        updateAppointmentsList(model);
+        model.addAttribute("appointment", new Appointment());
+        return "index";
+    }
+
     private void updateAppointmentsList(Model model) {
         RequestMapper mapper = new RequestMapper();
         List<Appointment> appointments = mapper.mapGetMethod(repository);
